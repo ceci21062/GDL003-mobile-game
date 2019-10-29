@@ -58,6 +58,8 @@ class Menu extends Component {
         width: 100,
         height: 100,
         flexDirection: 'column',
+       
+
     },
     controlRow: {
         height: 60,

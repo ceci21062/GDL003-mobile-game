@@ -1,53 +1,53 @@
 import React, { Component } from 'react';
-import { ImageBackground, StyleSheet, Button, View, Alert } from 'react-native';
-//import {OpcionMenu} from './menu';
+import { ImageBackground, StyleSheet, Button, View, Alert,Text, Image } from 'react-native';
+import SnakeGame from './gameSnake';
 
 class App extends Component {
+ _onPress() {
+    <View>
+   <SnakeGame/>
+    </View>
+  }
+
   render() {
     let pic = {
-      uri:
-        'https://thumbs.dreamstime.com/b/modelo-inconsútil-de-la-historieta-del-kawaii-con-los-fantasmas-lindos-51223794.jpg',
+      uri: 'https://i.postimg.cc/L6kkjZWD/snakegame.jpg',
     };
     return (
-      <ImageBackground source={pic} style={styles.imgback}>
-        <View style={styles.menu} />
-        <Button
-          style={styles.button}
-          title="NEW GAME"
-          onPress={() =>
-            Alert.alert(
-              'Alert Title',
-              'My Alert Msg',
-              [
-                {
-                  text: 'Ask me later',
-                  onPress: () => console.log('Ask me later pressed'),
-                },
-                {
-                  text: 'Cancel',
-                  onPress: () => console.log('Cancel Pressed'),
-                  style: 'cancel',
-                },
-                { text: 'OK', onPress: () => console.log('OK Pressed') },
-              ],
-              { cancelable: false }
-            )
-          }
-        />
-      </ImageBackground>
+    <View style={styles.container}>
+      <View style={styles.img}>
+      <View style={styles.fixToText}>
+          <Button
+            title="New Game"
+            color="#17EB2D"
+            onPress={()=>{this._onPress}} 
+          />
+         </View>
+       <Image source={pic} style={styles.img}/>
+      </View>
+   </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  imgback: {
+   container: {
+    flex: 1,
+    width: '100%',
     height: '100%',
+    backgroundColor:"white"
   },
-  menu: {
-    height: '40%',
-  },
-  button: {
-    backgroundColor: '#00308F',
+  img: {
+      marginTop: '10%',
+      width: '100%',
+      height: '80%',
+      justifyContent: 'center',
+    },
+  fixToText: {
+    flexDirection: 'row',
+    alignSelf:'auto',
+    marginLeft:180, 
+    
   },
 });
 
